@@ -55,7 +55,7 @@ extern "C" {
 #  define SIZE_MAX ((size_t)-1)
 #endif
 
-#ifdef ARDUINO_AVR_UNO
+#if defined(ARDUINO_AVR_UNO) || defined(ARDUINO_AVR_UNO_WIFI_REV2) || defined(ARDUINO_AVR_UNO_WIFI)
     # if __WORDSIZE == 64
     #  define __PRI64_PREFIX        "l"
     #  define __PRIPTR_PREFIX        "l"
