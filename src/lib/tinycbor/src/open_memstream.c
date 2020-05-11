@@ -27,6 +27,7 @@
 #define _GNU_SOURCE 1
 
 #include <sys/types.h>
+
 #include <errno.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -34,6 +35,7 @@
 
 #include <unistd.h>
 
+typedef uint16_t ssize_t ;
 typedef ssize_t RetType;
 typedef size_t LenType;
 

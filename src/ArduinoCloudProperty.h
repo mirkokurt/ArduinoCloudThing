@@ -29,11 +29,6 @@
 
 
 #include <Arduino.h>
-// in order to allow <functional> to define its own max and min functions
-#undef max
-#undef min
-#include <functional>
-
 #include "lib/tinycbor/cbor-lib.h"
 #include "lib/LinkedList/LinkedList.h"
 
@@ -168,13 +163,11 @@ class ArduinoCloudProperty {
     void appendAttributeReal(int value, String attributeName = "", CborEncoder *encoder = nullptr);
     void appendAttributeReal(float value, String attributeName = "", CborEncoder *encoder = nullptr);
     void appendAttributeReal(String value, String attributeName = "", CborEncoder *encoder = nullptr);
-    void appendAttributeName(String attributeName, std::function<void (CborEncoder& mapEncoder)>f, CborEncoder *encoder);
     void setAttributesFromCloud(LinkedList<CborMapData *> *map_data_list);
     void setAttributeReal(bool& value, String attributeName = "");
     void setAttributeReal(int& value, String attributeName = "");
     void setAttributeReal(float& value, String attributeName = "");
     void setAttributeReal(String& value, String attributeName = "");
-    void setAttributeReal(String attributeName, std::function<void (CborMapData *md)>setValue);
     String getAttributeName(String propertyName, char separator);
 
     virtual bool isDifferentFromCloud() = 0;
